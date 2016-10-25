@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Webpack and npm stuffz
+/frontend/node_modules
+/app/assets/javascripts/bundle*
