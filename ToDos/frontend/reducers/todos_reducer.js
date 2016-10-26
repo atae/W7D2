@@ -1,5 +1,5 @@
 import Redux from "redux";
-import { RECEIVE_TODOS, REQUEST_TODOS } from "../actions/todo_actions";
+import { RECEIVE_TODOS, RECEIVE_TODO } from "../actions/todo_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {};
@@ -14,6 +14,12 @@ const TodosReducer = (state = _defaultState, action) => {
         newState[todo.id] = merge({}, todo);
       });
       return newState;
+
+    case RECEIVE_TODO:
+      newState = merge({}, state);
+      newState[action.todo.id] = action.todo;
+      return newState;
+
     default:
       return state;
   }
